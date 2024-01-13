@@ -1,6 +1,7 @@
 import * as path from "node:path";
 
-// TODO: The resolve path looks wrong.
-const pathOfTargetMjs = `file:///${new URL(path.resolve("../../target/src/target.mjs"), "file://").href}`;
-console.log(pathOfTargetMjs);
-console.log(import.meta.resolve('mute-stream', pathOfTargetMjs));
+const targetMjsPath = path.resolve("target/src/target.mjs");
+console.log({ targetMjsPath });
+const targetMjsUrl = `file:///${targetMjsPath}`;
+console.log({ targetMjsUrl });
+console.log(import.meta.resolve('mute-stream', targetMjsUrl));
